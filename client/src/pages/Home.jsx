@@ -1,4 +1,5 @@
 import React from 'react'
+import Footer from '../components/Footer'
 
 export default function Home() {
   return (
@@ -23,6 +24,8 @@ export default function Home() {
         <li><span className='font-semibold'>3.Profile:</span> View and update your profile information.</li>
         <li><span className='font-semibold'>4.Logout:</span> Safely log out from your account.</li>
       </ul>
+      <Footer/>
     </div>
+    
   )
 }

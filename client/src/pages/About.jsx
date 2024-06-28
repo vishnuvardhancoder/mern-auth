@@ -1,4 +1,5 @@
 import React from 'react'
+import Footer from '../components/Footer'
 
 export default function About() {
   return (
@@ -8,6 +9,7 @@ export default function About() {
       Molestias consequatur error aperiam quisquam laudantium mollitia dolores libero animi quam neque perferendis harum quod doloremque accusamus quia recusandae vel cumque inventore, natus minima? Laboriosam perferendis facere magnam officia eligendi?
       Recusandae laboriosam quos, sed quibusdam officiis vitae esse? Quaerat beatae, tempora odio doloribus recusandae cumque hic officia quidem dolores neque eveniet explicabo quia sapiente, nobis ab impedit minima vitae fuga!
       Iure ducimus aspernatur vero temporibus doloremque laboriosam necessitatibus aut qui illum fugiat, illo facere fugit laudantium inventore nihil pariatur ab, nemo mollitia assumenda deleniti magni rerum itaque? Delectus, laudantium quasi?</p>
+      <Footer/>
     </div>
   )
 }

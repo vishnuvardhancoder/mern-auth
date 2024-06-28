@@ -4,6 +4,7 @@ import {getDownloadURL, getStorage, ref, uploadBytesResumable} from 'firebase/st
 import { app } from "../firebase"
 import { useDispatch } from "react-redux"
 import { updateUserStart,updateUserSuccess,updateUserFailure,deleteUserFailure,deleteUserStart,deleteUserSuccess,signOut } from "../redux/user/userSlice"
+import Footer from "../components/Footer"
 
 export default function Profile() {
   const fileRef = useRef(null)

@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { signInStart, signInSuccess, signInFailure } from '../redux/user/userSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import OAuth from '../components/OAuth';
+import Footer from '../components/Footer';
 
 export default function SignIn() {
   const [formData, setFormData] = useState({});
@@ -83,6 +84,8 @@ export default function SignIn() {
       <p className='text-red-700 mt-5'>
         {error ? error.message || 'Something went wrong!' : ''}
       </p>
+      
     </div>
+    
   );
 }

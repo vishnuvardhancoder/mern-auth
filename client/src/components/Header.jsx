@@ -7,9 +7,9 @@ export default function Header() {
     <div className='bg-sky-200 p-3'>
         <div className="flex justify-between items-center max-w-6xl mx-auto p-3">
             <Link to='/'>
-            <h1 className='font-bold text-xl'>VISH-AUTH!</h1>
+            <h1 className='font-bold text-lg md:text-xl'>V-AUTH</h1>
             </Link>
-            <ul className='flex items-center gap-8'>
+            <ul className='flex items-center gap-4'>
                 <Link to='/'>
                 <li className='hover:text-rose-500 text-lg'>Home</li>
                 </Link>

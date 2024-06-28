@@ -17,7 +17,7 @@ const userSchema = new mongoose.Schema({
     },
     profilePicture:{
         type: String,
-        default:"https://imgs.search.brave.com/H2OqHIN2j3kQUDMnJgDxX3uAeUkWKYo_V6aDzyYRmB4/rs:fit:860:0:0/g:ce/aHR0cHM6Ly90My5m/dGNkbi5uZXQvanBn/LzA2LzYwLzkyLzc2/LzM2MF9GXzY2MDky/NzYyNl9IVGhnaWtt/Y2FxdFpmWlZPTndY/QmlQRGVDQ3hOWEJm/eC5qcGc"
+        default:"https://w7.pngwing.com/pngs/178/595/png-transparent-user-profile-computer-icons-login-user-avatars-thumbnail.png"
     }
 },{timestamps: true}) //time of creation and time of edit is automatically stored by mongodb
 

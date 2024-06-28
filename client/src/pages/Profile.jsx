@@ -96,7 +96,7 @@ export default function Profile() {
   }
   
   return (
-    <div className="p-3 max-w-lg mx-auto">
+    <div className="p-6 max-w-lg mx-auto bg-orange-300 mt-10 rounded-lg">
       <h1 className='text-3xl font-semibold text-center my-7'>Profile</h1>
       <form onSubmit={handleSubmit} className="flex flex-col gap-4">
         <input type="file" ref={fileRef} hidden accept="image/.*" onChange={(e) => setImage(e.target.files[0])}/>
@@ -118,8 +118,8 @@ export default function Profile() {
         <button className="bg-slate-700 text-white p-3 rounded-lg uppercase hover:opacity-90 disabled:opacity-80">{loading ? 'Loading..' : 'Update'}</button>
       </form>
       <div className="flex justify-between mt-5">
-        <span className="text-red-700 cursor-pointer" onClick={handleDeleteAccount}>Delete Account</span>
-        <span className="text-red-700 cursor-pointer" onClick={handleSignOut}>Sign Out</span>
+        <span className="text-red-700 cursor-pointer hover:underline" onClick={handleDeleteAccount}>Delete Account</span>
+        <span className="text-red-700 cursor-pointer hover:underline" onClick={handleSignOut}>Sign Out</span>
       </div>
       <p className="text-red-700 mt-5">{error && "Something went wrong!"}</p>
       <p className="text-green-700 mt-5">{updateSuccess && "User is updated successfully.."}</p>

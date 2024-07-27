@@ -3,8 +3,12 @@ import { google, signin, signup,signout } from '../controllers/auth.controller.j
 
 const router = express.Router()
 
-router.post('/signup',signup)
-router.post('/signin',signin)
-router.post('/google', google)
-router.get('/signout',signout)
+router.post('mern-auth-five-snowy.vercel.app
+/signup',signup)
+router.post('mern-auth-five-snowy.vercel.app
+/signin',signin)
+router.post('mern-auth-five-snowy.vercel.app
+/google', google)
+router.get('mern-auth-five-snowy.vercel.app
+/signout',signout)
 export default router;

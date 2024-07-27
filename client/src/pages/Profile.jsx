@@ -51,7 +51,7 @@ export default function Profile() {
     e.preventDefault();
     try {
       dispatch(updateUserStart());
-      const res = await fetch(`mern-auth-five-snowy.vercel.app
+      const res = await fetch(`https://mern-auth-client-sigma.vercel.app
 /api/user/update/${currentUser._id}`, {
         method: 'POST',
         headers: {
@@ -74,7 +74,7 @@ export default function Profile() {
   const handleDeleteAccount = async () =>{
     try{
       dispatch(deleteUserStart())
-      const res = await fetch(`mern-auth-five-snowy.vercel.app
+      const res = await fetch(`https://mern-auth-client-sigma.vercel.app
 /api/user/delete/${currentUser._id}`, {
         method: 'DELETE',
       });
@@ -91,7 +91,7 @@ export default function Profile() {
   }
   const handleSignOut = async () =>{
     try{
-      await fetch('mern-auth-five-snowy.vercel.app
+      await fetch('https://mern-auth-client-sigma.vercel.app
 /api/auth/signout')
       dispatch(signOut())
     }catch(error){

@@ -19,7 +19,7 @@ export default function SignIn() {
     e.preventDefault();
     try {
       dispatch(signInStart());
-      const res = await fetch('mern-auth-five-snowy.vercel.app
+      const res = await fetch('https://mern-auth-client-sigma.vercel.app
 /api/auth/signin', {
         method: 'POST',
         headers: {

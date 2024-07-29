@@ -17,7 +17,7 @@ export default function SignUp() {
     try {
       setLoading(true);
       setError(false);
-      const res = await fetch('api/auth/signup', {
+      const res = await fetch('https://mern-auth-8nc8uw9hk-vishnu-vardhans-projects-db979fa2.vercel.app/api/auth/signup', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

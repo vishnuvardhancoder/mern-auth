@@ -4,9 +4,9 @@ import { verifyToken } from '../utils/verifyUser.js'
 
 const router = express.Router()
 
-router.get('/',test)
-router.post('/update/:id',verifyToken, updateUser)
-router.delete('/delete/:id',verifyToken, deleteUser)
+router.get('https://mern-auth-api-black.vercel.app/',test)
+router.post('https://mern-auth-api-black.vercel.app/update/:id',verifyToken, updateUser)
+router.delete('https://mern-auth-api-black.vercel.app/delete/:id',verifyToken, deleteUser)
 
 
 

@@ -36,8 +36,8 @@ app.listen(3000, ()=>{
     console.log("Server is running at port: 3000!!")
 })  
 
-app.use('/api/user',userRoutes)
-app.use('/api/auth',authRoutes)
+app.use('https://mern-auth-api-black.vercel.app/api/user',userRoutes)
+app.use('https://mern-auth-api-black.vercel.app/api/auth',authRoutes)
 
 app.use((err,req,res,next)=>{
     const statusCode = err.statusCode || 500;

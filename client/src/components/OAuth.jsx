@@ -13,7 +13,7 @@ export default function OAuth() {
       const auth = getAuth(app);
 
       const result = await signInWithPopup(auth, provider);
-      const res = await fetch('https://mern-auth-8nc8uw9hk-vishnu-vardhans-projects-db979fa2.vercel.app/api/auth/google', {
+      const res = await fetch('https://mern-auth-api-black.vercel.app/api/auth/google', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

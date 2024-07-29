@@ -57,6 +57,7 @@ export default function Profile() {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(formData),
+        credentials: 'include' // Include credentials (cookies)
       });
       const data = await res.json();
       if (data.success === false) {
@@ -75,6 +76,7 @@ export default function Profile() {
       dispatch(deleteUserStart())
       const res = await fetch(`https://mern-auth-api-black.vercel.app/api/user/delete/${currentUser._id}`, {
         method: 'DELETE',
+        credentials: 'include' // Include credentials (cookies)
       });
       const data = await res.json();
       if (data.success === false) {

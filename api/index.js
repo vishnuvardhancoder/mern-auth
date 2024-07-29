@@ -1,50 +1,48 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
-import userRoutes from './routes/user.route.js'
-import authRoutes from './routes/auth.route.js'
+import cors from 'cors'; // Import cors
+import userRoutes from './routes/user.route.js';
+import authRoutes from './routes/auth.route.js';
 import cookieParser from 'cookie-parser';
-// import path from 'path'
-dotenv.config()
 
+dotenv.config();
 
-mongoose.connect(process.env.MONGO).then(()=>{
-    console.log("MongoDB connected Successfully!")
-}).catch((err)=>{
-    console.log(err)
-})
+mongoose.connect(process.env.MONGO).then(() => {
+    console.log("MongoDB connected Successfully!");
+}).catch((err) => {
+    console.log(err);
+});
 
-// const __dirname = path.resolve()
+const app = express();
 
-const app = express()
+// CORS configuration
+app.use(cors({
+    origin: 'https://mern-auth-client-eight.vercel.app', // Update with your frontend URL
+    methods: 'GET,POST,PUT,DELETE',
+    credentials: true
+}));
 
-// app.use(express.static(path.join(__dirname, '/client/dist')))
-
-// app.get('*', (req,res) => {
-//     res.sendFile(path.join(__dirname, 'client', 'dist','index.html' ))
-// })
-
-app.use(express.json())
-app.use(cookieParser())
+app.use(express.json());
+app.use(cookieParser());
 
 app.get('/', (req, res) => {
     res.send('Hello from the backend!');
 });
 
+app.use('/api/user', userRoutes);
+app.use('/api/auth', authRoutes);
 
-app.listen(3000, ()=>{
-    console.log("Server is running at port: 3000!!")
-})  
-
-app.use('https://mern-auth-api-black.vercel.app/api/user',userRoutes)
-app.use('https://mern-auth-api-black.vercel.app/api/auth',authRoutes)
-
-app.use((err,req,res,next)=>{
+app.use((err, req, res, next) => {
     const statusCode = err.statusCode || 500;
-    const message = err.message || "Internal Server Error"
+    const message = err.message || "Internal Server Error";
     return res.status(statusCode).json({
         success: false,
         message,
         statusCode,
-    })
-})
+    });
+});
+
+app.listen(3000, () => {
+    console.log("Server is running at port: 3000!!");
+});

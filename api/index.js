@@ -13,6 +13,9 @@ mongoose.connect(process.env.MONGO).then(()=>{
 }).catch((err)=>{
     console.log(err)
 })
+app.get('/', (req, res) => {
+    res.send('Hello from the backend!');
+});
 
 // const __dirname = path.resolve()
 

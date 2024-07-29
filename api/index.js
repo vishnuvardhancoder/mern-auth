@@ -16,13 +16,13 @@ mongoose.connect(process.env.MONGO).then(() => {
 
 const app = express();
 
-const corsOptions = {
-    origin: 'https://mern-auth-client-eight.vercel.app', // Your frontend URL
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    credentials: true, // Allow cookies and authentication
-  };
-  
-app.use(cors(corsOptions)); // Use CORS middleware
+// CORS configuration
+app.use(cors({
+    origin: 'https://mern-auth-client-eight.vercel.app', // Update with your frontend URL
+    methods: 'GET,POST,PUT,DELETE',
+    credentials: true
+}));
+
 app.use(express.json());
 app.use(cookieParser());
 

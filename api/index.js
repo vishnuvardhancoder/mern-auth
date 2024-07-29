@@ -13,13 +13,10 @@ mongoose.connect(process.env.MONGO).then(()=>{
 }).catch((err)=>{
     console.log(err)
 })
-app.get('/', (req, res) => {
-    res.send('Hello from the backend!');
-});
 
 // const __dirname = path.resolve()
 
-// const app = express()
+const app = express()
 
 // app.use(express.static(path.join(__dirname, '/client/dist')))
 
@@ -29,6 +26,11 @@ app.get('/', (req, res) => {
 
 app.use(express.json())
 app.use(cookieParser())
+
+app.get('/', (req, res) => {
+    res.send('Hello from the backend!');
+});
+
 
 app.listen(3000, ()=>{
     console.log("Server is running at port: 3000!!")

@@ -49,26 +49,29 @@ export default function Profile() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log("Form data before submission:", formData); // Add this line for debugging
+
     try {
-      dispatch(updateUserStart());
-      const res = await fetch(`https://mern-auth-api-black.vercel.app/api/user/update/${currentUser._id}`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
-      const data = await res.json();
-      if (data.success === false) {
-        dispatch(updateUserFailure(data));
-        return;
-      }
-      dispatch(updateUserSuccess(data));
-      setUpdateSuccess(true);
+        dispatch(updateUserStart());
+        const res = await fetch(`https://mern-auth-api-black.vercel.app/api/user/update/${currentUser._id}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(formData),
+            credentials: 'include' // Ensure credentials are included
+        });
+        const data = await res.json();
+        if (data.success === false) {
+            dispatch(updateUserFailure(data));
+            return;
+        }
+        dispatch(updateUserSuccess(data));
+        setUpdateSuccess(true);
     } catch (error) {
-      dispatch(updateUserFailure(error));
+        dispatch(updateUserFailure(error));
     }
-  };
+};
 
   const handleDeleteAccount = async () =>{
     try{

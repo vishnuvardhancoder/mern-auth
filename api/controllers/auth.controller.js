@@ -26,7 +26,7 @@ export const signin = async (req, res, next) => {
     const { password: hashedPassword, ...rest } = validUser._doc;
     const expiryDate = new Date(Date.now() + 3600000); // 1 hour
     res
-      .cookie('access_token', token, { httpOnly: true, expires: expiryDate,domain: 'https://mern-auth-client-eight.vercel.app' })
+      .cookie('access_token', token, { httpOnly: true, expires: expiryDate,domain: '.vercel.app' })
       .status(200)
       .json(rest);
   } catch (error) {
@@ -45,7 +45,7 @@ export const google = async (req, res, next) => {
         .cookie('access_token', token, {
           httpOnly: true,
           expires: expiryDate,
-          domain: 'https://mern-auth-client-eight.vercel.app'
+          domain: '.vercel.app', 
         })
         .status(200)
         .json(rest);
@@ -70,7 +70,7 @@ export const google = async (req, res, next) => {
         .cookie('access_token', token, {
           httpOnly: true,
           expires: expiryDate,
-          domain: 'https://mern-auth-client-eight.vercel.app'
+          domain: '.vercel.app', 
         })
         .status(200)
         .json(rest);

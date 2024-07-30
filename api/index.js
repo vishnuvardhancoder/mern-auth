@@ -42,6 +42,9 @@ app.use((err, req, res, next) => {
         statusCode,
     });
 });
+app.get('/favicon.ico', (req, res) => {
+    res.status(204).end();
+  });
 
 app.listen(3000, () => {
     console.log("Server is running at port: 3000!!");

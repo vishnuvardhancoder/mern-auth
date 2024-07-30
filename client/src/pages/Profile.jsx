@@ -55,9 +55,9 @@ export default function Profile() {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          Authorization: `Bearer ${localStorage.getItem('access_token')}`,
         },
         body: JSON.stringify(formData),
-        credentials: 'include' // Include credentials (cookies)
       });
       const data = await res.json();
       if (data.success === false) {
@@ -70,25 +70,28 @@ export default function Profile() {
       dispatch(updateUserFailure(error));
     }
   };
-
-  const handleDeleteAccount = async () =>{
-    try{
-      dispatch(deleteUserStart())
+  
+  const handleDeleteAccount = async () => {
+    try {
+      dispatch(deleteUserStart());
       const res = await fetch(`https://mern-auth-api-black.vercel.app/api/user/delete/${currentUser._id}`, {
         method: 'DELETE',
-        credentials: 'include' // Include credentials (cookies)
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('access_token')}`,
+        },
       });
       const data = await res.json();
       if (data.success === false) {
-        dispatch(deleteUserFailure(data))
+        dispatch(deleteUserFailure(data));
         return;
       }
-      dispatch(deleteUserSuccess(data))
-
-    }catch(error){
-      dispatch(deleteUserFailure(error))
+      dispatch(deleteUserSuccess(data));
+    } catch (error) {
+      dispatch(deleteUserFailure(error));
     }
-  }
+  };
+  
+  
   const handleSignOut = async () =>{
     try{
       await fetch('https://mern-auth-api-black.vercel.app/api/auth/signout')

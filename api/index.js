@@ -18,7 +18,7 @@ const app = express();
 
 // CORS configuration
 app.use(cors({
-    origin: 'https://mern-auth-client-eight.vercel.app', // Update with your frontend URL
+    origin: ['https://mern-auth-client-eight.vercel.app','mern-auth-api-black.vercel.app'],// Update with your frontend URL
     methods: 'GET,POST,PUT,DELETE',
     credentials: true
 }));

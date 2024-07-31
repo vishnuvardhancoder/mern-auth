@@ -20,6 +20,14 @@ mongoose
 
 const app = express();
 
+app.use(cors(
+    {
+        origin: ['https://mern-auth-frontend-t7e1.onrender.com'],
+        methods: 'GET,POST,PUT,DELETE',
+        credentials: true
+    }
+))
+
 // app.use(express.static(path.join(__dirname, '/client/dist')));
 
 // app.get('*', (req, res) => {

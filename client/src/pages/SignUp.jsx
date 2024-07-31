@@ -17,7 +17,7 @@ export default function SignUp() {
     try {
       setLoading(true);
       setError(false);
-      const res = await fetch('https://mern-auth-api-black.vercel.app/api/auth/signup', {
+      const res = await fetch('https://mern-auth-api-orpin.vercel.app/api/auth/signup', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -17,7 +17,7 @@ export default function SignUp() {
     try {
       setLoading(true);
       setError(false);
-      const res = await fetch('https://mern-auth-backend-otyq.onrender.com/api/auth/signup', {
+      const res = await fetch('/api/auth/signup', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

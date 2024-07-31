@@ -4,8 +4,7 @@ import dotenv from 'dotenv';
 import userRoutes from './routes/user.route.js';
 import authRoutes from './routes/auth.route.js';
 import cookieParser from 'cookie-parser';
-import cors from 'cors';
-// import path from 'path';
+import path from 'path';
 dotenv.config();
 
 mongoose
@@ -17,23 +16,15 @@ mongoose
     console.log(err);
   });
 
-// const __dirname = path.resolve();
+const __dirname = path.resolve();
 
 const app = express();
 
-app.use(cors(
-    {
-        origin: ['https://mern-auth-frontend-t7e1.onrender.com'],
-        methods: 'GET,POST,PUT,DELETE',
-        credentials: true
-    }
-))
+app.use(express.static(path.join(__dirname, '/client/dist')));
 
-// app.use(express.static(path.join(__dirname, '/client/dist')));
-
-// app.get('*', (req, res) => {
-//   res.sendFile(path.join(__dirname, 'client', 'dist', 'index.html'));
-// });
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'client', 'dist', 'index.html'));
+});
 
 app.use(express.json());
 

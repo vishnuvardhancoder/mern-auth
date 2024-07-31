@@ -51,7 +51,7 @@ export default function Profile() {
     e.preventDefault();
     try {
       dispatch(updateUserStart());
-      const res = await fetch(`https://mern-auth-backend-otyq.onrender.com/api/user/update/${currentUser._id}`, {
+      const res = await fetch(`/api/user/update/${currentUser._id}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -74,7 +74,7 @@ export default function Profile() {
   const handleDeleteAccount = async () => {
     try {
       dispatch(deleteUserStart());
-      const res = await fetch(`https://mern-auth-backend-otyq.onrender.com/api/user/delete/${currentUser._id}`, {
+      const res = await fetch(`/api/user/delete/${currentUser._id}`, {
         method: 'DELETE',
         credentials: 'include',
       });
@@ -90,7 +90,7 @@ export default function Profile() {
   };
   const handleSignOut = async () =>{
     try{
-      await fetch('https://mern-auth-backend-otyq.onrender.com/api/auth/signout')
+      await fetch('/api/auth/signout')
       dispatch(signOut())
     }catch(error){
       console.log(error);

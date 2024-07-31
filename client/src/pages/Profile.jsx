@@ -57,6 +57,7 @@ export default function Profile() {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(formData),
+        credentials: 'include',
       });
       const data = await res.json();
       if (data.success === false) {
@@ -75,6 +76,7 @@ export default function Profile() {
       dispatch(deleteUserStart());
       const res = await fetch(`https://mern-auth-api-orpin.vercel.app/api/user/delete/${currentUser._id}`, {
         method: 'DELETE',
+        credentials: 'include',
       });
       const data = await res.json();
       if (data.success === false) {

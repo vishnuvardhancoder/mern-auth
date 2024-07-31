@@ -29,7 +29,8 @@ export const signin = async (req, res, next) => {
     httpOnly: true,
     expires: expiryDate,
     sameSite: 'None',
-    secure: true
+    secure: true,
+    domain: 'mern-auth-client-eight.vercel.app'
   })
   .status(200)
   .json(rest);
@@ -49,7 +50,8 @@ export const google = async (req, res, next) => {
     httpOnly: true,
     expires: expiryDate,
     sameSite: 'None',
-    secure: true
+    secure: true,
+    domain: 'mern-auth-client-eight.vercel.app'
   })
   .status(200)
   .json(rest);
@@ -74,7 +76,8 @@ export const google = async (req, res, next) => {
     httpOnly: true,
     expires: expiryDate,
     sameSite: 'None',
-    secure: true
+    secure: true,
+    domain: 'mern-auth-client-eight.vercel.app'
   })
   .status(200)
   .json(rest);

@@ -12,7 +12,7 @@ export default function OAuth() {
       const provider = new GoogleAuthProvider();
       const auth = getAuth(app);
       const result = await signInWithPopup(auth, provider);
-      const res = await fetch('https://mern-auth-api-orpin.vercel.app/api/auth/google', {
+      const res = await fetch('https://mern-auth-backend-otyq.onrender.com/api/auth/google', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

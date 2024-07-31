@@ -25,12 +25,10 @@ export const signin = async (req, res, next) => {
     const token = jwt.sign({ id: validUser._id }, process.env.JWT_SECRET);
     const { password: hashedPassword, ...rest } = validUser._doc;
     const expiryDate = new Date(Date.now() + 3600000); // 1 hour
-    res.cookie('access_token', token, {
-      httpOnly: true,
-      expires: expiryDate,
-      domain: '.vercel.app',
-      path: '/'
-    })
+    res
+      .cookie('access_token', token, { httpOnly: true, expires: expiryDate })
+      .status(200)
+      .json(rest);
   } catch (error) {
     next(error);
   }
@@ -43,12 +41,11 @@ export const google = async (req, res, next) => {
       const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET);
       const { password: hashedPassword, ...rest } = user._doc;
       const expiryDate = new Date(Date.now() + 3600000); // 1 hour
-      res.cookie('access_token', token, {
-        httpOnly: true,
-        expires: expiryDate,
-        domain: '.vercel.app',
-        path: '/'
-      })
+      res
+        .cookie('access_token', token, {
+          httpOnly: true,
+          expires: expiryDate,
+        })
         .status(200)
         .json(rest);
     } else {
@@ -68,12 +65,11 @@ export const google = async (req, res, next) => {
       const token = jwt.sign({ id: newUser._id }, process.env.JWT_SECRET);
       const { password: hashedPassword2, ...rest } = newUser._doc;
       const expiryDate = new Date(Date.now() + 3600000); // 1 hour
-      res.cookie('access_token', token, {
-        httpOnly: true,
-        expires: expiryDate,
-        domain: '.vercel.app',
-        path: '/'
-      })
+      res
+        .cookie('access_token', token, {
+          httpOnly: true,
+          expires: expiryDate,
+        })
         .status(200)
         .json(rest);
     }
